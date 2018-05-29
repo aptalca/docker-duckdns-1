@@ -12,7 +12,9 @@ ENV S6_BEHAVIOUR_IF_STAGE2_FAILS=2
 RUN \
  echo "**** install packages ****" && \
  apk add --no-cache \
-	curl
+ 	curl && \
+ apk add --no-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ \
+	s3cmd
 
 # add local files
 COPY root/ /
