@@ -1,4 +1,4 @@
-FROM lsiobase/alpine:3.9
+FROM lsiobase/alpine:3.12
 
 # set version label
 ARG BUILD_DATE
@@ -13,7 +13,8 @@ ENV S6_BEHAVIOUR_IF_STAGE2_FAILS=2 \
 RUN \
  echo "**** install packages ****" && \
  apk add --no-cache \
- 	curl && \
+ 	curl \
+	openssl && \
  apk add --no-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ \
 	s3cmd
 
